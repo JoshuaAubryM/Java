@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> ThymeLeaf </title>
+</head>
+<body>
+    <h1> Welcome!</h1>
+
+    <table>
+
+        <tr>
+            <th> Product Name </th>
+            <th> Product Price </th>
+        </tr>
+
+        <tr th:each = "p: ${products}">
+            <!-- --------------- Iterates through the product list ( var products = productServices.findAll () --------------- -->
+            <td th:text = "${p.name}"></td>
+            <td th:text = "${p.price}"></td>
+        </tr>
+
+    </table>
+
+    <h2> Add a Product </h2>
+    <form action = "/LeafHome" method = "post">
+        <!-- --------------- Remember The Action and Method --------------- -->
+        Name: <input
+                    type = "text"
+                    name = "name"/>
+
+        </br>
+
+        Price: <input
+                    type = "number"
+                    step = "any"
+                    name = "price"/>
+
+        <br />
+
+        <button type = "submit"> Add Product </button>
+    </form>
+</body>
+</html>
